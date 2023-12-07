@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "design";
+    src: url(./assets/font/LeagueSpartan-VariableFont_wght.ttf);
+  }
+}
+@layer components {
+  .footerBgMob {
+    @apply bg-[linear-gradient(180deg,rgba(255,255,255,1)_13%,rgba(238,239,244,1)_13%)];
+  }
+  .footerBgTab {
+    @apply bg-[linear-gradient(270deg,rgba(255,255,255,1)_20%,rgba(238,239,244,1)_20%)];
+  }
+  .footerBgDesk {
+    @apply bg-[linear-gradient(270deg,rgba(255,255,255,1)_11%,rgba(238,239,244,1)_11%)];
+  }
+}
