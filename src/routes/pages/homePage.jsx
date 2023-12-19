@@ -1,3 +1,5 @@
+import { useRef, useEffect } from "react";
+
 import paramour from "../../assets/images/home/mobile/image-hero-paramour.jpg";
 import paramour_tab from "../../assets/images/home/tablet/image-hero-paramour.jpg";
 import paramour_desk from "../../assets/images/home/desktop/image-hero-paramour.jpg";
@@ -62,8 +64,13 @@ const slides = [
 ];
 
 export default function HomePage() {
+  const scrollUp = useRef(null);
+  useEffect(() => {
+    scrollUp.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, []);
   return (
     <main className="mx-auto max-w-[573px] xl:max-w-[1110px]">
+      <div ref={scrollUp} className="absolute left-0 top-0"></div>
       <Slider slides={slides} />
       <Welcome />
       <Block />

@@ -1,3 +1,5 @@
+import { useRef, useEffect } from "react";
+
 import sol from "../../assets/images/portfolio/mobile/image-del-sol.jpg";
 import sol_tab from "../../assets/images/portfolio/tablet/image-del-sol.jpg";
 import sol_desk from "../../assets/images/portfolio/desktop/image-del-sol.jpg";
@@ -158,6 +160,10 @@ const work = [
 ];
 
 export default function Portfolio() {
+  const scrollUp = useRef(null);
+  useEffect(() => {
+    scrollUp.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, []);
   const renderedCard = work.map((per) => {
     return (
       <figure className="grid">
@@ -176,6 +182,7 @@ export default function Portfolio() {
   });
   return (
     <main className="mx-auto grid max-w-[573px] gap-[24px] px-[32px] pb-[72px] pt-[56px] sm:px-0 sm:pb-[200px] sm:pt-0 xl:max-w-[1110px] xl:grid-cols-3 xl:pb-[160px]">
+      <div ref={scrollUp} className="absolute left-0 top-0"></div>
       {renderedCard}
     </main>
   );
